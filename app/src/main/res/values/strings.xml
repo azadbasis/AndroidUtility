@@ -1,8 +1,3 @@
 <resources>
-    <string name="app_name">Runtime Permission</string>
-        <string name="multiple_permission">Multiple_Permission</string>
-        <string name="phone_granted">phone book  granted</string>
-        <string name="request_permission">You must grant permission!</string>
-        <string name="grant">permission granted</string>
-        <string name="permission_denied">permission denied</string>
+    <string name="app_name">Single Choice</string>
 </resources>

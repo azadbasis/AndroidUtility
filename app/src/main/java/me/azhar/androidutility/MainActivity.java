@@ -1,60 +1,61 @@
 package me.azhar.androidutility;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import java.util.ArrayList;
+import java.util.List;
+import me.azhar.androidutility.Adapter.CustomAdapter;
+import me.azhar.androidutility.Model.Item;
 
-import static android.widget.Toast.LENGTH_SHORT;
-import static android.widget.Toast.makeText;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int REQUEST_READ_CONTACTS = 100;
+    RecyclerView list_item;
+    RecyclerView.LayoutManager layoutManager;
+    List<Item> items = new ArrayList<>();
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        checkPermission();
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, NewActivity.class));
+            }
+        });
+
+        list_item = (RecyclerView) findViewById(R.id.recyclerview);
+        layoutManager = new LinearLayoutManager(this);
+        list_item.setHasFixedSize(true);
+        list_item.setLayoutManager(layoutManager);
+
+        getData();
     }
 
-    String[] permissions = {
-            Manifest.permission.READ_CONTACTS
-    };
+    private void getData() {
 
-    private boolean checkPermission() {
-        // Check the SDK version and whether the permission is already granted or not.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(permissions[0]) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{permissions[0]}, REQUEST_READ_CONTACTS);
-            return false;
-        } else {
-            makeText(this, R.string.grant, LENGTH_SHORT).show();
-            return true;
-        }
-    }
+        for (int i = 0; i < 15; i++) {
+            Item item = new Item();
+            item.setName("Item__ " + i);
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                                           int[] grantResults) {
-        switch (requestCode) {
-            case REQUEST_READ_CONTACTS:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    makeText(this, R.string.phone_granted, LENGTH_SHORT).show();
-                } else {
-                    makeText(this, R.string.request_permission, LENGTH_SHORT).show();
-                }
-                break;
+            if (i % 2 == 0)
+                item.setChecked(true);
+            else
+                item.setChecked(false);
+            items.add(item);
 
         }
+        CustomAdapter customAdapter = new CustomAdapter(items, this);
+        list_item.setAdapter(customAdapter);
 
-    }
-
-    public void goMultiplePermission(View view) {
-        startActivity(new Intent(this, Multiple_Permissions.class));
     }
 }
