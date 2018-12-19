@@ -24,8 +24,6 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-import me.azhar.androidutility.R;
-import me.azhar.androidutility.VideoActivity;
 import me.azhar.androidutility.symmetric.AESEncyption;
 import me.azhar.androidutility.symmetric.Encrypter;
 import me.azhar.androidutility.symmetric.SymmetricEncryptionUtils;
