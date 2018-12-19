@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">Single Choice</string>
-    <string name="base64Result">Base64 Result</string>
+    <string name="app_name">Android Encryption</string>
+    <string name="usage_normal">See the normal usage</string>
+    <string name="usage_low_iteration">See the low iteration usage</string>
+    <string name="usage_customized">See the customized usage</string>
+    <string name="usage_async">See the async usage</string>
 </resources>

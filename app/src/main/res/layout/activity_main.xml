@@ -1,20 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/usage_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:fontFamily="cursive"
+        android:textAllCaps="false"
+        android:text="@string/usage_normal" />
+
+    <Button
+        android:id="@+id/usage_customized"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:fontFamily="cursive"
+        android:textAllCaps="false"
+        android:text="@string/usage_customized" />
+
+    <Button
+        android:id="@+id/usage_async"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:fontFamily="cursive"
+        android:textAllCaps="false"
+        android:text="@string/usage_async" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:fontFamily="cursive"
+        android:onClick="cryptoGraph"
+        android:text="cryptoGraph"
+        android:textAllCaps="false"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:fontFamily="cursive"
+        android:onClick="cryptoGraphVideo"
+        android:text="cryptoGraphyVideo"
+        android:textAllCaps="false"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:fontFamily="cursive"
+        android:onClick="playVideo"
+        android:text="Play Video"
+        android:textAllCaps="false"
+        />
+
 
     <TextView
-        android:id="@+id/tvOutput"
-        android:text="@string/base64Result"
+        android:id="@+id/log_textView"
         android:layout_width="match_parent"
-        android:layout_centerInParent="true"
-        android:textAllCaps="false"
-        android:layout_margin="25dp"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="18sp"
-        android:textColor="@android:color/black"
-        android:layout_height="wrap_content" />
-</RelativeLayout>
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
+
+</LinearLayout>
